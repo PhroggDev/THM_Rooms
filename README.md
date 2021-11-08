@@ -2,7 +2,7 @@
 # Try Hack Me Rooms
 
 ## Attacker
- <img src="https://tryhackme-badges.s3.amazonaws.com/PhroggDev.png" alt="TryHackMe">
+ ![Badge](/imgs/UserBadge.png)
 
  Using [TryHackMe](https://tryhackme.com) to learn and practice *hacker skillz*
 
