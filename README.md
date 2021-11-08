@@ -6,5 +6,5 @@
 
 Writeups for rooms on the TryHackMe platform  
 | Room | WriteUp | Difficulty |  
--------------------------------  
+| ---- | ------- | ---------- |  
 | ide | [IDE](ide/ide.md) |
