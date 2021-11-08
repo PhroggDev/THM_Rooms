@@ -2,9 +2,11 @@
 # Try Hack Me Rooms
 
 ## Attacker
-![Your host, PhroggDev](/imgs/UserBadge.png)  
+ <img src="https://tryhackme-badges.s3.amazonaws.com/PhroggDev.png" alt="TryHackMe">
 
-Writeups for rooms on the TryHackMe platform  
-| Room | WriteUp | Difficulty |  
-| ---- | ------- | ---------- |  
-| ide | [IDE](ide/ide.md) |
+ Using [TryHackMe](https://tryhackme.com) to learn and practice *hacker skillz*
+
+### Writeups for rooms on the TryHackMe platform  
+| Room | WriteUp | Difficulty | Tags |  
+| ---- | ------- | ---------- | ---- |
+| ide | [IDE](ide/ide.md) | Easy | enumeration,Public Exploit,PrivEsc,FTP |
