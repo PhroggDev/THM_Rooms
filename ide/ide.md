@@ -1,5 +1,5 @@
 # IDE  
-<img src="https://tryhackme-images.s3.amazonaws.com/room-icons/3ce8e9c4d1da5eefef690e11f75798c7.png" width="40" height="40">
+![ide logo](/imgs/ide_room_logo.png)
 
 IDE, an easy box to polish your enumeration skills!
 
