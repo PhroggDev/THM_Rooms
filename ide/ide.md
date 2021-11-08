@@ -136,4 +136,10 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2021-11-08 14:52:
 A few seconds later and we have valid credentials. User *`drac`* did reset the user *`john`* to a **well-known** default password.
 
 ### 3. Exploit and get Local Shell Access  
-{To be continued...}
+  * Find exploit using *searchsploit* on **Kali**
+  * Edit the *sploit* to use our attacking host
+  * Setup 3 terminals to implement the *sploit* chosen
+  * Get **shell** , Escalate privilege using found credentials
+  * Escalate to **SuperUser** and enjoy the ***PWNing***
+
+  {To be continued...}
