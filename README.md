@@ -10,3 +10,4 @@
 | Room | WriteUp | Difficulty | Tags |  
 | ---- | ------- | ---------- | ---- |
 | ide | [IDE](ide/ide.md) | Easy | enumeration,Public Exploit,PrivEsc,FTP |
+| dockerrodeo | ![The Docker Rodeo](imgs/dockerrodeo_room_logo.png)[dockerrodeo](dockerrodeo/dockerrodeo.md) | Medium |
