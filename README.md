@@ -9,5 +9,5 @@
 ### Writeups for rooms on the TryHackMe platform  
 | Room | WriteUp | Difficulty | Tags |  
 | ---- | ------- | ---------- | ---- |
-| ide | [IDE](ide/ide.md) | Easy | enumeration,Public Exploit,PrivEsc,FTP |
-| dockerrodeo | ![The Docker Rodeo](imgs/dockerrodeo_room_logo.png)[dockerrodeo](dockerrodeo/dockerrodeo.md) | Medium |
+| ide | [![ide room logo](/imgs/ide_room_logo-50x50.png)](ide/ide.md) | Easy | enumeration,FTP,Public Exploit,PrivEsc |
+| dockerrodeo | [![The Docker Rodeo](imgs/dockerrodeo_room_logo-50x50.png)](dockerrodeo/dockerrodeo.md) | Medium | docker,playground,showcase,walkthrough |
