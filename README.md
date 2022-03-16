@@ -2,7 +2,7 @@
 # Try Hack Me Rooms
 
 ## Attacker
-![tryhackme stats](https://raw.githubusercontent.com/Phroggdev/PhroggDev/master/assets/thm_propic.png)
+![tryhackme stats](/assets/thm_propic.png)
 
  Using [TryHackMe](https://tryhackme.com) to learn and practice *hacker skillz*
 
