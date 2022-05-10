@@ -12,7 +12,7 @@ jobs:
   clean-logs:
     runs-on: ubuntu-latest
     steps:
-      - uses: phroggdev/clean_workflow_logs_all@v1
+      - uses: phroggdev/THM_Rooms@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           owner: ${{ github.repository_owner }}
