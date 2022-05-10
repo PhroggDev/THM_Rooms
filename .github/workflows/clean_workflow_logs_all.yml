@@ -10,6 +10,7 @@ on:
 
 jobs:
   clean-logs:
+    runs-on: ubuntu-latest
     on: 
       workflow_dispatch:
     steps:
