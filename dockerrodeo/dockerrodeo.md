@@ -1,1 +1,1 @@
-![dockerrodeo](/imgs/dockerrodeo_room_logo.png)
+![dockerrodeo](/dockerrodeo/imgs/dockerrodeo_room_logo.png)
