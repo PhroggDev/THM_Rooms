@@ -1,10 +1,10 @@
 # IDE  
-![ide logo](/imgs/ide_room_logo.png)
+![ide logo](/ide/imgs/ide_room_logo.png)
 
 IDE, an easy box to polish your enumeration skills!
 
 ## Summary
-  * Start Machine
+  * Start Machine::
   * Find open ports using nmap
   * Access ports discovered
   * Where possible determine version of server software
@@ -13,7 +13,7 @@ IDE, an easy box to polish your enumeration skills!
 
 ### 1. Nmap enumeration
 
-I used an [**Aggressive**](https://nmap.org/book/vscan-examples.html) scan (the `-A` option), while leaving most settings at their default values hoping to see slightly more verbose version detection. The `-T4` option can be used on the TryHackMe platform since the machines we attack are on a virtual private network using [private addressing space](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_addresses). Tantamount to being on a LAN. In the field I would most likely reduce that to `-T3` or `-T2` to reduce the chance of being detected by an IDS or worse overwhelming a production server, despoiling my probe results.
+I used an [**Aggressive**](https://nmap.org/book/vscan-examples.html) scan (the `-A` option), hoping to see slightly more verbose version detection. The `-T4` option can be used on the TryHackMe platform since the machines we attack are on a virtual private network using [private addressing space](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_addresses). Tantamount to being on a LAN. In the field I would most likely reduce that to `-T3` or `-T2` to reduce the chance of being detected by an IDS or worse overwhelming a production server, spoiling my probe results. Before scanning I added an entry in `/etc/hosts` of my attack box to point my local resolver at the ip address I learned after the target box was started.
 
 ```console
 # Nmap 7.92 scan initiated Sat Nov  6 22:10:06 2021 as: nmap -A -T4 -oA scans/nmap_init ide.thm
@@ -25,7 +25,7 @@ PORT   STATE SERVICE VERSION
 | ftp-syst:
 |   STAT:
 | FTP server status:
-|      Connected to ::ffff:10.13.21.92
+|      Connected to <my attacker IP>
 |      Logged in as ftp
 |      TYPE: ASCII
 |      No session bandwidth limit
@@ -59,13 +59,13 @@ OS and Service detection performed. Please report any incorrect results at https
 ```
 
 I see some standard services:  
-* FTP being served by vsFTPd 3.0.3 :: *always good to see version strings when we probe*
-* SSH being served up by OpenSSH 7.6p1 :: *Not the most up to date or secure, but not grossly insecure*
-* HTTP served up by Apache2 on Ubuntu :: *This turns out to be just the first httpd daemon running on this box*
+* FTP being served by vsFTPd 3.0.3 --> *always good to see version strings when we probe*
+* SSH being served up by OpenSSH 7.6p1 --> *Not the most up to date or secure, but not grossly insecure*
+* HTTP served up by Apache2 on Ubuntu --> *This turns out to be just the first httpd daemon running on this box*
 
 The first two, FTP and SSH, are relatively stable and secure servers. Further probing by loading up the Apache homepage in a browser gives the appearance this is a distro specific  standard install. Hinted at by `http-title: Apache2 Ubuntu Default Page: It works`
 
-![Default Page](/imgs/screenshot_default_page.png)
+![Default Page](/ide/imgs/screenshot_default_page.png)
 
 In the rush to hack over a web port I neglected a feature of the ftp server `Anonymous FTP login allowed (FTP code 230)` that Nmap revealed. Let's fire up an ftp client and see what's publicly accessible. You never know what secrets got left out in the open.
 
