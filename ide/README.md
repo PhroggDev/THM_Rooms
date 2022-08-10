@@ -9,7 +9,7 @@ IDE, an easy box to polish your enumeration skills!
   * Access ports discovered
   * Where possible determine version of server software
   * Seek out publicly released known exploits
-  * Once local access is achieved, escalate privileges to find the flags
+  * Once local access is achieved, escalate privileges to find all the flags
 
 ### 1. Nmap enumeration
 
