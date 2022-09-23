@@ -53,5 +53,5 @@ Once again, the `403 Auth Req` Return Code indicates the files exist.
 * Now we look at the ftp server log `vsftpd.log`  
 The last three lines in that log show a successful login followed by the transfer of the two files.  
 6. What service and username were used to gain shell access to the server? (service, username)  
-* Lots of failed logins for user `www-data` for the **sshd** service, til the end of the log where we see `accepted password for www-data from ...`  
+* Lots of failed logins in `auth.log` for user `www-data` for the **sshd** service, til the end of the log where we see `accepted password for www-data from ...`  
 That's a shell and we're done with the room.
