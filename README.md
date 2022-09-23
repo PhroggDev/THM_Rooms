@@ -12,3 +12,4 @@
 | [ide](https://tryhackme.com/room/ide) | [![ide room logo](/imgs/ide_room_logo-50x50.png)](ide/README.md) | Easy | enumeration,FTP,Public Exploit,PrivEsc |
 | [dockerrodeo](https://tryhackme.com/room/dockerrodeo) | [![The Docker Rodeo](imgs/dockerrodeo_room_logo-50x50.png)](dockerrodeo/README.md) | Medium | docker,playground,showcase,walkthrough |
 | [cyberheroes](https://tryhackme.com/room/cyberheroes) | [![CyberHeroes](/imgs/cyberheroes_room_logo-50x50.png)](cyberheroes/README.md) | Easy | enumeration,authentication bypass |
+| [Juicy Details](https://tryhackme.com/room/juicydetails) | [![juicydetails room logo](/imgs/juicydetailsRoomLogo.png)](juicydetais/README.md) | Easy | Blue Team:Security Operations:Logs:Web |
