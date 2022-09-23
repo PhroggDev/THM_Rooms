@@ -82,6 +82,7 @@ a local variable defined as the reverse of a string value.
 - username refers to variable a --> a = document.getElementById('uname')  
 - password refers to variable b --> b = document.getElementById('pass')  
 - const RevereString = str => [...str].reverse().join('');  
+Despite the obvious spelling error in `RevereString` --> looks suspiciously like *Reverse*   
 A boolean comparison is made (the if statement)  
 to determine the page returned to the browser. Or rather an event not a page  
 is returned. That event either reveals the flag or admonishes the user to "try again.."  
