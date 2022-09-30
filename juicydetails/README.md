@@ -33,25 +33,31 @@ Filter on `"-"` to split the log file lines into two parts, the User-Agent field
 Our next task expects us to determine if any sensitive data was accessed and if so, what that data was.  
 
 1.  What section of the website did the attacker use to scrape user email addresses?  
-* Here we are looking for endpoints that will return pages containing information about users or business data. The task asks specifically for email addresses. We know the site includes that data point in it's *Product Review* section.  
+	* Here we are looking for endpoints that will return pages containing information about users or business data. The task asks specifically for email addresses. We know the site includes that data point in it's *Product Review* section.  
 2. Was their brute-force attack successful? If so, what is the timestamp of the successful login?  
-* Looking back at the *Hydra* attack we see a `200 OK` log entry indicating a successful login. Extract the date from that line.  
+	* Looking back at the *Hydra* attack we see a `200 OK` log entry indicating a successful login. Extract the date from that line.  
 `::ffff:192.168.10.5 - - [11/Apr/2021:09:16:31 +0000] "POST /rest/user/login HTTP/1.0" 200 831 "-" "Mozilla/5.0 (Hydra)"`
 3. What user information was the attacker able to retrieve from the endpoint vulnerable to SQL injection?  
-* Looking at the `access.log` entries associated with the *sqlmap* attack we can see the *_sql injection_* parameters the attacker used.  
+	* Looking at the `access.log` entries associated with the *sqlmap* attack we can see the *_sql injection_* parameters the attacker used.  
 After verifying that sensitive data is returned in *Firefox* browser the attacker used this `curl` command to save the data to a file on the attacker's machine.  
-req --> `GET /rest/products/search?q=qwert%27))%20UNION%20SELECT%20id,%20email,%20password,%20%274%27,%20%275%27,%20%276%27,%20%277%27,%20%278%27,%20%279%27%20FROM%20Users-- HTTP/1.1 200 3742 "-" "curl/7.74.0"`  
-curl command --> `curl -s "http://<ip.address of juicy>/rest/products/search?q=qwert')) UNION SELECT id, email, password, '4', '5', '6', '7', '8', '9' FROM Users"`  
+```
+req --> `GET /rest/products/search?q=qwert%27))%20UNION%20SELECT%20id,%20email,%20password,%20%274%27,%20%275%27,%20%276%27,%20%277%27,%20%278%27,%20%279%27%20FROM%20Users-- HTTP/1.1 200 3742 "-" "curl/7.74.0"
+curl command --> curl -s "http://<ip.address of juicy>/rest/products/search?q=qwert')) UNION SELECT id, email, password, '4', '5', '6', '7', '8', '9' FROM Users"
+```
+ 
 4. What files did they try to download from the vulnerable endpoint? (endpoint from the previous task, question #5)  
-* These are the files from Task 5 in Reconnaissance phase that revealed an *_Information Disclosure_* vulnerability.  
-```log
+	* These are the files from Task 5 in Reconnaissance phase that revealed an *_Information Disclosure_* vulnerability.  
+
+```
 ::ffff:192.168.10.5 - - [11/Apr/2021:09:34:40 +0000] "GET /ftp/www-data.bak HTTP/1.1" 403 300 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"  
 ::ffff:192.168.10.5 - - [11/Apr/2021:09:34:43 +0000] "GET /ftp/coupons_2013.md.bak HTTP/1.1" 403 78965 "-" ""Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
-```  
-Once again, the `403 Auth Req` Return Code indicates the files exist.  
+```
+- Once again, the `403 Auth Req` Return Code  indicates the files exist.
+
 5. What service and account name were used to retrieve files from the previous question? (service, username)  
-* Now we look at the ftp server log `vsftpd.log`  
+	* Now we look at the ftp server log `vsftpd.log`  
 The last three lines in that log show a successful login followed by the transfer of the two files.  
 6. What service and username were used to gain shell access to the server? (service, username)  
-* Lots of failed logins in `auth.log` for user `www-data` for the **sshd** service, til the end of the log where we see `accepted password for www-data from ...`  
+	* Lots of failed logins in `auth.log` for user `www-data` for the **sshd** service, til the end of the log where we see `accepted password for www-data from ...
+	
 That's a shell and we're done with the room.
