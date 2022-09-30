@@ -3,7 +3,12 @@ name: TryHackMe Update Badge
 on:
   schedule:
   # Make it run once a day
-    - cron: '0 0 * * *'
+  # --------------dow|
+  # -------------mo| |
+  # ----------day| | |
+  # ---------hr| | | |
+  # ------min| | | | |
+    - cron: '0 0 * * 5'
   workflow_dispatch:
 jobs:
   tryhackme-badge-update:
