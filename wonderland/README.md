@@ -40,7 +40,7 @@ Read data files from: /usr/local/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Sat Oct  8 12:24:52 2022 -- 1 IP address (1 host up) scanned in 15.96 seconds
 ```  
-Not much, apparently I didn't pass the parameters to **nnmap** properly and all that shows up in 
+Not much, apparently I didn't pass the parameters to **nmap** properly and all that shows up in 
 the report is some versioning.  I'll run `nmap` on it's own and run the **vuln** suite of scripts 
 on port 80  
 `nmap -A -sV --script vuln -vvv -p 80 10.10.157.233`  
