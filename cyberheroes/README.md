@@ -1,8 +1,10 @@
 # CyberHeroes  
+
 Our **hero** is looking for a way to log into a site  
 First we will find what services the **_TARGET_** host is offering  
+
 ```sh
-# Nmap 7.92 scan initiated Sat Aug  6 21:40:15 2022 as: nmap -Pn -sV -sC -T4 -oA scans/<target>.init <target ip>
+$ Nmap 7.92 scan initiated Sat Aug  6 21:40:15 2022 as: nmap -Pn -sV -sC -T4 -oA scans/<target>.init <target ip>
 Nmap scan report for <target ip>
 Host is up (0.26s latency).
 Not shown: 998 closed tcp ports (reset)
@@ -20,7 +22,9 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Sat Aug  6 21:40:36 2022 -- 1 IP address (1 host up) scanned in 20.77 seconds
 ```
+
 Parsing the index page of the webserver on port 80 we find a link to *login.html* in a sidebar  
+
 ```sh
 curl -is http://$TARGET
 ...
@@ -33,7 +37,7 @@ Accept-Ranges: bytes
 Content-Length: 6568                                                                              
 Vary: Accept-Encoding                                                                             
 Content-Type: text/html
-...
+[...]
 <nav id="navbar" class="nav-menu navbar">                                                   
         <ul>                                                                                      
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Ho
@@ -45,10 +49,12 @@ gin</span></a></li>
         </ul>                                                                                     
       </nav>
 ```
+
 Parsing the source for that page we find some inline javascript  
+
 ```js
 curl -is http://$TARGET/login.html
-...
+[...]
 <script>
     function authenticate() {
       a = document.getElementById('uname')                                                        
@@ -72,16 +78,19 @@ curl -is http://$TARGET/login.html
       }
     }
   </script>
-...
+[...]
 ```
+
 I see a hardcoded publicly exposed username/password combo  
 This inline script contains a function named authenticate that grabs a username  
 and a password from a form on the page.
 It then compares them to a hardcoded value and  
 a local variable defined as the reverse of a string value.  
+
 - username refers to variable a --> a = document.getElementById('uname')  
 - password refers to variable b --> b = document.getElementById('pass')  
 - const RevereString = str => [...str].reverse().join('');  
+
 Despite the obvious spelling error in `RevereString` --> looks suspiciously like *Reverse*   
 A boolean comparison is made (the if statement)  
 to determine the page returned to the browser. Or rather an event not a page  
