@@ -65,12 +65,9 @@ $ FFUF Report
 
   Command line : `ffuf -u http://10.10.132.28/FUZZ -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories-lowercase.txt -o scans/fuzz_dir.md -of md`
   Time: 2022-10-09T16:35:22-04:00
-
-  | FUZZ | URL | Redirectlocation | Position | Status Code | Content Length | Content Words | Content Lines | Content Type | Duration | ResultFile |
-  | :- | :-- | :--------------- | :---- | :------- | :---------- | :------------- | :------------ | :--------- | :----------- |
-  | webdav | http://10.10.132.28/webdav |  | 2366 | 401 | 459 | 42 | 15 | text/html; charset=iso-8859-1 | 327.036041ms |  |
-  | server-status | http://10.10.132.28/server-status |  | 3781 | 403 | 300 | 22 | 12 | text/html; charset=iso-8859-1 | 326.819155ms |  |
-  |  | http://10.10.132.28/ |  | 3809 | 200 | 11321 | 3503 | 376 | text/html | 324.905262ms |  |
+  | webdav        | http://10.10.132.28/webdav        | 2366 | 401 | 459    | 42   | 15  | text/html; charset=iso-8859-1 | 327.036041ms |
+  | server-status | http://10.10.132.28/server-status | 3781 | 403 | 300    | 22   | 12  | text/html; charset=iso-8859-1 | 326.819155ms |
+  |   [:space:]   | http://10.10.132.28/              | 3809 | 200 | 11321  | 3503 | 376 | text/html                     | 324.905262ms |
   
 ```  
 
