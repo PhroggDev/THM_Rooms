@@ -26,7 +26,7 @@ nmap from source and a simple
 did suffice to drop a working nmap into `/usr/local/bin<br>
 Now, on to our port scan:
 
-```sh
+```nmap
 Nmap 7.93 scan initiated Thu Sep 29 11:29:42 2022 as: /usr/local/bin/nmap -Pn -sC -sV -vv -A -oN scans/archangel_init -T4 10.10.76.70
 Increasing send delay for 10.10.76.70 from 0 to 5 due to 11 out of 11 dropped probes since last increase.
 Increasing send delay for 10.10.76.70 from 5 to 10 due to 31 out of 76 dropped probes since last increase.
@@ -87,7 +87,7 @@ So we see two(2) ports open
 | 80 | httpd | Apache httpd 2.4.29 |
 ---
 Time for some diry enumeration on the _httpd_ server. **GoBuster** to the rescue :smile:
-> ```sh
+> ```txt
 > 
 > ===============================================================
 > Gobuster v3.1.0
