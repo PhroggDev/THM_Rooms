@@ -16,3 +16,4 @@
 | [Juicy Details](https://tryhackme.com/room/juicydetails) | [![juicydetails room logo](imgs/juicydetailsRoomLogo_50x50.png)](juicydetails/README.md) | Easy | Blue Team:Security Operations:Logs:Web |
 | [ArchAngel](https://tryhackme.com/room/archangel) | [![ArchAngel](imgs/archAngel-50x50.jpeg)](archangel/README.md) |Easy | security boot2root lfi PrivEsc |
 | [Thompson](https://tryhackme.com/room/bsidesgtthompson) | [![room logo](imgs/thompson_room_logo.png)](bsidesgtthompson/README.md) | Easy | security |
+| [DAV](https://tryhackme.com/room/bsidesgtdav) | [![room logo](imgs/DAV_roomLogo_sm.jpeg)](bsidesgtdav/README.md) | Medium | security |  
