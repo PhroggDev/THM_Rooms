@@ -116,7 +116,7 @@ You may be wondering about the lone file found in the root of this Distributed A
 Go ahead and crack that hash with John the Ripper or HashCat, but I couldn't be bothered. After all, I already had a foothold using the creds that file seemed to either back-up or set.  
 
 Next up you can see I uploaded a [webshell](https://en.wikipedia.org/wiki/Web_shell) while a netcat listener waited for a connection that did eventually arrive.  
-However insult was added to my injury when I discovered `www-data` had **sudo** privileges on this host.  
+However insult was added to the injury I did when I discovered `www-data` had **sudo** privileges on this host.  
 
 ![sudo IS root](assets/canRunSudo.png)  
 
