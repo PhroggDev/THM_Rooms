@@ -1,5 +1,5 @@
 # Wonderland
-
+![room logo](assets/HomePage.png)  
 Fall down the rabbit hole and enter wonderland,
 
 This CTF style challenge is rated medium difficulty and tagged  
