@@ -17,5 +17,6 @@
 | [ArchAngel](https://tryhackme.com/room/archangel) | [![ArchAngel](imgs/archAngel-50x50.jpeg)](archangel/README.md) |Easy | security boot2root lfi PrivEsc |
 | [Thompson](https://tryhackme.com/room/bsidesgtthompson) | [![room logo](imgs/thompson_room_logo.png)](bsidesgtthompson/README.md) | Easy | security |
 | [DAV](https://tryhackme.com/room/bsidesgtdav) | [![room logo](imgs/DAV_roomLogo_sm.jpeg)](bsidesgtdav/README.md) | Medium | security |  
-| [Tony the Tiger](https://tryhackme.com/room/tonythetiger) | [![](imgs/tonythetiger_room_logo.png)](tonythetiger/README.md) | Easy | CVE-2015-7501 : Java Web App : cryptography : stegonagraphy   
-| [Mustacchio](https://tryhackme.com/room/mustacchio) | [![](imgs/mustacchio_room_logo.png)](mustacchio/README.md) | Easy | xxe::enumermation::privesc::web |
+| [Tony the Tiger](https://tryhackme.com/room/tonythetiger) | [![](imgs/tonythetiger_room_logo.png)](tonythetiger/README.md) | Easy | CVE-2015-7501 : Java Web App : cryptography : stegonagraphy |  
+| [Mustacchio](https://tryhackme.com/room/mustacchio) | [![](imgs/mustacchio_room_logo.png)](mustacchio/README.md) | Easy | xxe : enumeration : privesc : web |  
+| [WonderLand](https://tryhackme.com/room/wonderland) | [![](imgs/wonderland_room_logo_sm.png)](wonderland/README.md) | Medium | ctf : alice in wonderland : privesc : linux |
