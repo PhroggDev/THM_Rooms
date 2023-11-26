@@ -8,7 +8,7 @@ on:
   # ----------day| | |
   # ---------hr| | | |
   # ------min| | | | |
-    - cron: '0 0 * * 5'
+    - cron: '20 10 7 * *'
   workflow_dispatch:
 jobs:
   tryhackme-badge-update:
